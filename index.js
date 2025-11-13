@@ -92,7 +92,7 @@ async function run() {
       res.send(result);
     });
 
-    // Update Food
+    // Update Foods
     app.put("/foods/:id", async (req, res) => {
       const { id } = req.params;
       const data = req.body;
@@ -101,7 +101,6 @@ async function run() {
       const result = await foodCollection.updateOne(filter, update);
       res.send({ success: true, result });
     });
-
  
     // Manage Foods 
     app.get("/manage-foods", verifyToken, async (req, res) => {
@@ -111,7 +110,7 @@ async function run() {
     });
 
  
-    // Delete Food
+    // Delete Foods
     app.delete("/foods/:id", async (req, res) => {
       const { id } = req.params;
       const result = await foodCollection.deleteOne({ _id: new ObjectId(id) });
@@ -128,8 +127,7 @@ async function run() {
       res.send(result);
     });
 
-
-    //Requiest
+    // my Requiest
     app.post('/requiests/:id', async (req, res)=>{
       const data = req.body;
       const id = req.params.id;
